@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      UV Index
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding ion-text-center">
+  <div *ngIf="data$ | async as data">
+    <kws-uv-index class="primary-value" [uvIndex]="data.value"></kws-uv-index>
+    <div class="description">{{ advice[data.riskLevel] }}</div>
+  </div>
+</ion-content>

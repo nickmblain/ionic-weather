@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Current Weather
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center ion-padding">
+  <div *ngIf="data$ | async as data">
+    <div class="information">
+      <kws-temperature
+        class="primary-value"
+        [scale]="scale"
+        temperature="{{ data.temperature }}"
+        (click)="toggleScale()"
+      ></kws-temperature>
+      <kws-condition
+        [condition]="data.condition"
+        [iconPaths]="iconMap"
+      ></kws-condition>
+    </div>
+  </div>
+</ion-content>
